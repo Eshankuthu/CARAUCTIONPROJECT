@@ -50,9 +50,9 @@
  	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/jocker" />
+		<property name="url" value="jdbc:mysql://localhost:3306/jocker?createDatabaseIfNotExist=true" />
 		<property name="username" value="root" />
-		<property name="password" value="root" />
+		<property name="password" value="K4futi4m4g4sh!" />
 	</bean>
 
 
