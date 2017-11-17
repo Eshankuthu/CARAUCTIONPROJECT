@@ -23,22 +23,22 @@ public class Property implements Serializable {
 	private long id;
 	
 	
-	private String propertyName;
+	private String Vehicle;
 	
 	
-	private String ownerDescription;
+	private String Description;
 	
 	
 	private double expectedPrice;
 	
 	
-	private String facilities;
+	private String Cylinders;
 	
 	
-	private Integer areaOfHouse;
+	private Integer Miles;
 	
 
-	private String typeOfHouse;
+	private String Model;
 	
 	@Transient
 	private MultipartFile image;
@@ -63,20 +63,14 @@ public class Property implements Serializable {
 		this.id = id;
 	}
 
-	public String getPropertyName() {
-		return propertyName;
+	
+
+	public String getDescription() {
+		return Description;
 	}
 
-	public void setPropertyName(String propertyName) {
-		this.propertyName = propertyName;
-	}
-
-	public String getOwnerDescription() {
-		return ownerDescription;
-	}
-
-	public void setOwnerDescription(String ownerDescription) {
-		this.ownerDescription = ownerDescription;
+	public void setDescription(String Description) {
+		this.Description = Description;
 	}
 
 	public double getExpectedPrice() {
@@ -87,29 +81,8 @@ public class Property implements Serializable {
 		this.expectedPrice = expectedPrice;
 	}
 
-	public String getFacilities() {
-		return facilities;
-	}
-
-	public void setFacilities(String facilities) {
-		this.facilities = facilities;
-	}
-
-	public Integer getAreaOfHouse() {
-		return areaOfHouse;
-	}
-
-	public void setAreaOfHouse(Integer areaOfHouse) {
-		this.areaOfHouse = areaOfHouse;
-	}
-
-	public String getTypeOfHouse() {
-		return typeOfHouse;
-	}
-
-	public void setTypeOfHouse(String typeOfHouse) {
-		this.typeOfHouse = typeOfHouse;
-	}
+	
+	
 
 	/*public User getOwner() {
 		return owner;
@@ -121,6 +94,38 @@ public class Property implements Serializable {
 
 	public Address getAddress() {
 		return address;
+	}
+
+	public String getVehicle() {
+		return Vehicle;
+	}
+
+	public void setVehicle(String vehicle) {
+		Vehicle = vehicle;
+	}
+
+	public String getCylinders() {
+		return Cylinders;
+	}
+
+	public void setCylinders(String cylinders) {
+		Cylinders = cylinders;
+	}
+
+	public Integer getMiles() {
+		return Miles;
+	}
+
+	public void setMiles(Integer miles) {
+		Miles = miles;
+	}
+
+	public String getModel() {
+		return Model;
+	}
+
+	public void setModel(String model) {
+		Model = model;
 	}
 
 	public void setAddress(Address address) {

@@ -24,14 +24,5 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 	
-<!-- 	<bean id="conversionService"
-		class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
-		<property name="formatters">
-			<set>
-				<bean class="edu.mum.formatter.RoleFormatter">
-				</bean>
-			</set>
-		</property>
-	</bean> -->
-	
+
 </beans>
