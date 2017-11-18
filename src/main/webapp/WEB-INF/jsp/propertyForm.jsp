@@ -1,25 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Property Form</title>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<link type="text/css" rel="stylesheet"
-	href="<spring:url value='resources/css/property.css' />" />
-</head>
-<body>
 	<%@ include file="header.jsp"%>
 	<section id="contact">
 		<div class="section-content">
@@ -33,32 +12,63 @@
 
 					<div class="col-md-6 form-line">
 						<div class="form-group">
-							<label for="Vehicle">CAR NAME</label>
-							<form:input class="form-control" id=""
-								placeholder="Enter Car Name" path="Vehicle" />
+							<label for="vehicle">CAR NAME</label>
+							<form:input class="form-control" id="vehicle"
+								placeholder="Enter Car Name" path="vehicle" />
 						</div>
 					</div>
 
 					<div class="col-md-6 form-line">
 						<div class="form-group">
-							<label for="expectedPrice">Price</label>
+							<label for="expectedPrice">Expected Price</label>
 							<form:input class="form-control" id="expectedPrice"
 								placeholder=" Enter Price you desire" path="expectedPrice" />
 						</div>
 					</div>
+					
+					<div class="col-md-6 form-line">
+						<div class="form-group">
+							<label for="cylinders">Cylinders</label>
+							<form:input class="form-control" id="cylinders"
+								placeholder=" Enter Cylinders Cycle" path="cylinders" />
+						</div>
+					</div>
+					
+						<div class="col-md-6 form-line">
+						<div class="form-group">
+							<label for="model">Model</label>
+							<form:input class="form-control" id="model"
+								placeholder=" Enter Car Model" path="model" />
+						</div>
+					</div>
+					
+					<div class="col-md-6 form-line">
+						<div class="form-group">
+							<label for="odometer">Odometer</label>
+							<form:input class="form-control" id="odometer"
+								placeholder="Enter odometer " path="odometer" />
+						</div>
+					</div>
+					
+					<div class="col-md-6 form-line">
+						<div class="form-group">
+							<label for="Image">Upload Image</label>	
+								<form:input id="image" path="image"  type="file" />
+						</div>
+					</div>
+					
 
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="description">Description</label>
 							<form:textarea class="form-control" id="description"
-								placeholder="Enter Your Car Description" path="Description" />
+								placeholder="Enter Your Car Description" path="description" />
 						</div>
 
 
 						<div>
-							<button type="button" class="btn btn-default submit">
-								<i class="fa fa-paper-plane" aria-hidden="true"></i> Submit
-							</button>
+							
+							<input type="submit" value="Submit" class="btn btn-default submit"/>
 						</div>
 					</div>
 				</form:form>
