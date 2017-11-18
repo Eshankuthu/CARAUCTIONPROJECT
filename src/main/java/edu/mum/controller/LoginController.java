@@ -1,4 +1,4 @@
-package edu.mum.controller;
+/*package edu.mum.controller;
 
 import java.security.Principal;
 
@@ -52,3 +52,4 @@ public class LoginController {
 	}
 
 }
+*/
