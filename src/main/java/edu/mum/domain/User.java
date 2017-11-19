@@ -27,21 +27,16 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Entity
 public class User implements Serializable {
 	
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1069532369141841588L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long userId;
 	
-	//@NotEmpty 
+	
 	@Size(min=3,max= 25,message = "{Size.name.validation}")
 	private String firstName;
 	
-	//@NotEmpty 
 	@Size(min=3,max=25,message = "{Size.name.validation}")
 	private String lastName;
 	
@@ -50,9 +45,9 @@ public class User implements Serializable {
 	private String email;
 	
 	
-	/*@OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.REFRESH)
+	@OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.REFRESH)
 	@JoinColumn(name="user_userId")
-	Credential userCredential;*/
+	Credential userCredential;
 	
 	@OneToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL )
 	Phone phone;
@@ -65,14 +60,14 @@ public class User implements Serializable {
 		this.phone = phone;
 	}
 
-	/*public Credential getUserCredential() {
+	public Credential getUserCredential() {
 		return userCredential;
 	}
 
 	public void setUserCredential(Credential userCredential) {
 		this.userCredential = userCredential;
 	}
-*/
+
 
 	@Enumerated(EnumType.STRING)
 	private UserStatus userStatus;

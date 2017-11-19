@@ -7,6 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
 @Entity
@@ -17,22 +21,22 @@ public class Property implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	
-	
+	@NotEmpty(message="{String.property.vehicle}")
 	private String vehicle;
 	
-	
+	@NotEmpty(message="{String.property.description}")
 	private String description;
 	
-	
+	@NotNull(message="{NotNull.property.expectedPrice}")
 	private double expectedPrice;
 	
-	
+	@NotEmpty(message="{String.property.cylinders}")
 	private String cylinders;
 	
-	
+	@NotNull(message="{NotNull.property.odometer}")
 	private Integer odometer;
 	
-
+	@NotEmpty(message="{String.property.model}")
 	private String model;
 	
 	@Transient

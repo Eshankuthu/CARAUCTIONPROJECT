@@ -4,7 +4,6 @@ import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,8 +26,9 @@ public class AuctionServiceImpl implements AuctionService {
 		return (List<Auction>) auctionRepository.findAll();
 	}
 
-	@PreAuthorize("hasRole('ROLE_USER')")
+
 	public void addAuction(Auction auction) {
+		
 		auction.setCurrentBidAmount(auction.getMinBidAmount());
 		auction.setStatus(AuctionStatus.PENDING);
 		auctionRepository.save(auction);
@@ -40,7 +40,7 @@ public class AuctionServiceImpl implements AuctionService {
 	public void setAuctionPreassumptions(Auction auction, Property property) {
 
 		auction.setProperty(property);
-		auction.setMinBidAmount(property.getExpectedPrice());
+		auction.setMinBidAmount(property.getExpectedPrice()/ 2);
 
 		Calendar now = Calendar.getInstance();
 		now.set(Calendar.HOUR_OF_DAY, 9);
@@ -56,7 +56,6 @@ public class AuctionServiceImpl implements AuctionService {
 	}
 
 	@Override
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public Auction approveAuction(Long auctionId) {
 
 		Auction auction = auctionRepository.findOne(auctionId);
@@ -65,7 +64,6 @@ public class AuctionServiceImpl implements AuctionService {
 	}
 	
 	@Override
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public Auction approveAuction(Auction auction) {
 
 		auction.setStatus(AuctionStatus.APPROVED);
@@ -73,7 +71,6 @@ public class AuctionServiceImpl implements AuctionService {
 	}
 
 	@Override
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public Auction rejectAuction(Long auctionId) {
 		Auction auction = auctionRepository.findOne(auctionId);
 		auction.setStatus(AuctionStatus.CANCELLED);
@@ -81,7 +78,6 @@ public class AuctionServiceImpl implements AuctionService {
 
 	}
 	@Override
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public Auction completeAuction(Long auctionId) {
 		Auction auction = auctionRepository.findOne(auctionId);
 		auction.setStatus(AuctionStatus.COMPLETED);
@@ -111,14 +107,5 @@ public class AuctionServiceImpl implements AuctionService {
 
 		return auctionRepository.findOne(auctionId);
 	}
-
-	// @Scheduled(cron = "0 0 0/1 * * ?")
-	// public void UpdateAuctionStatus() {
-	// auctionRepository.activateAuctionStatus();
-	// auctionRepository.completeAuctionStatus();
-	//
-	// }
-	
-	
 
 }

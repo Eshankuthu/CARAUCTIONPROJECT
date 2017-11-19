@@ -1,19 +1,5 @@
 
 	<%@ include file="header.jsp"%>
-	
-			
-		<%-- <c:forEach items="${properties}" var="property">
-		<div> ${property.expectedPrice}</div>
-		
-		<div>
-		<img src="<c:url value="/resources/images/${property.id}.png"></c:url>" alt="image"  style = "width:100%"/>
-		
-		<c:set var="imgPath" value="resources/images/${property.id}.png"/>
-								<img src="<spring:url value= "${imgPath}" />"
-									alt="hello" style="width: 25%" />
-		</div>
-		
-		</c:forEach> --%>
 		
 		<div class="container">
    
