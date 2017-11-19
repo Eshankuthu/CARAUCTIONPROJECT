@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>CAR AUCTION SYSTEM</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -16,6 +16,8 @@
 <link type="text/css" rel="stylesheet"
 	href="<spring:url value='/resources/css/property.css' />" />
 	
+	<link type="text/css" rel="stylesheet"
+	href="<spring:url value='/resources/css/main.css' />" />
 	
 </head>
 <body>
@@ -29,6 +31,7 @@
       <li class="active"><a href="<spring:url value='/' />">Home</a></li>
       <li><a href="<spring:url value='/property/add' />">Add Property</a></li>
       <li><a href="<spring:url value='/login' />">Login</a></li>
+        <li><a href="<spring:url value='/auction/pending' />">Auction Pending</a></li>
     </ul>
   </div>
 </nav>

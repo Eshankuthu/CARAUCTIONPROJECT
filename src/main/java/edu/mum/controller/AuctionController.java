@@ -1,11 +1,11 @@
 package edu.mum.controller;
 
-import javax.validation.Valid;
 
+import javax.validation.Valid;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +17,7 @@ import edu.mum.domain.Auction;
 import edu.mum.domain.Property;
 import edu.mum.service.AuctionService;
 import edu.mum.service.PropertyService;
+import edu.mum.validator.AuctionValidator;
 
 
 @Controller
@@ -28,15 +29,11 @@ public class AuctionController {
 
 	@Autowired
 	PropertyService propertyService;
-
 	
-
 
 	@RequestMapping(value = "/auction/add/{propertyId}", method = RequestMethod.GET)
 	public String addAuction(@ModelAttribute("newAuction") Auction auction, @PathVariable("propertyId") Long propertyId,
 			Model model) {
-		// model.addAttribute("property", propertyService.getOneProperty());
-		// Property property =propertyService.getOneProperty();
 		Property property = propertyService.getProperty(propertyId);
 		auctionService.setAuctionPreassumptions(auction, property);
 		model.addAttribute("addedProperty", property);
@@ -44,24 +41,29 @@ public class AuctionController {
 	}
 
 	
-	@RequestMapping(value = "/auction/add", method = RequestMethod.POST)
+	@RequestMapping(value = "/auction/added", method = RequestMethod.POST)
 	public String processAuction(@Valid @ModelAttribute("newAuction") Auction auction, BindingResult result,
-			ModelMap map) {
-
-		//auction.setProperty((Property) map.get("addedProperty"));
-
-//		AuctionValidator auctionValidator = new AuctionValidator();
-//		auctionValidator.validate(auction, result);
-
+			@ModelAttribute("addedProperty")Property property) {
+		AuctionValidator auctionValidator = new AuctionValidator();
+		auctionValidator.validate(auction, result);
 		if (result.hasErrors())
 			return "auctionForm";
 
+		auction.setProperty(property);     
+		auction.setMinBidAmount(property.getExpectedPrice());
 		auctionService.addAuction(auction);
-		return "redirect:/";
+		return "redirect:/property/futureAuctions";
 
 	}
 
-	
+	@RequestMapping(value = "/auction/pending",method=RequestMethod.GET)
+	public String pendingAuction(Model model) {
+		
+		List<Auction> auctions = auctionService.getAllPendingAuctions();
+		model.addAttribute("pendingauctions",auctions);
+		return "pendingAuctions";
+		
+	}
 	
 
 }

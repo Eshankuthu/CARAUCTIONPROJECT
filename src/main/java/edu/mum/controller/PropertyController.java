@@ -84,10 +84,12 @@ public class PropertyController {
 				throw new ImageException("Saving Property image was not successful", e);
 			}
 		}
-		
 		property.setImagePath(servletContext.getContextPath() + "/resources/images/" + property.getId()+ ".png");
-		 propertyService.addProperty(property);
-		 return "redirect:/property/add/" + property.getId();
+		
+		Property save= propertyService.addProperty(property);
+		
+		
+		 return "redirect:/auction/add/" + save.getId();
 
 	}
 
