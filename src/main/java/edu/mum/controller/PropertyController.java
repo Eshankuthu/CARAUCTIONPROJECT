@@ -1,13 +1,18 @@
 package edu.mum.controller;
 
 import java.io.File;
+import java.security.Principal;
 import java.util.List;
-
+import java.util.Collection;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,8 +25,10 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.mum.domain.Property;
+import edu.mum.domain.User;
 import edu.mum.exception.ImageException;
 import edu.mum.service.PropertyService;
+import edu.mum.service.UserService;
 
 
 
@@ -29,6 +36,9 @@ import edu.mum.service.PropertyService;
 @RequestMapping("property")
 @SessionAttributes("addedProperty")
 public class PropertyController {
+	
+	@Autowired
+	UserService userService;
 	
 	@Autowired
 	ServletContext servletContext;
@@ -52,7 +62,7 @@ public class PropertyController {
 	
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String addProperty(@Valid @ModelAttribute("newProperty") Property property,BindingResult result,
-			Model model, HttpServletRequest request, RedirectAttributes redirectAttributes ) {
+			Model model, HttpServletRequest request, RedirectAttributes redirectAttributes,Principal principal ) {
 		
 
 		
@@ -63,27 +73,28 @@ public class PropertyController {
 		MultipartFile image = property.getImage();
 		
 		String rootDirectory = servletContext.getRealPath("/");
-		
-//		String imagePath = rootDirectory + "\\resources\\images\\" + property.getModel() + ".png";
+	
 		
 		if (image != null && !image.isEmpty()) {
 
 			try {
 				
 				image.transferTo(new File(rootDirectory + "\\resources\\images\\" + property.getId()+ ".png"));
-//				byte[] bytes=image.getBytes();
-//
-//				File serverFile = new File(imagePath);
-//				BufferedOutputStream stream = new BufferedOutputStream(
-//	                    new FileOutputStream(serverFile));
-//	            stream.write(bytes);
-//	            stream.close();
+
 
 			} catch (Exception e) {
 
 				throw new ImageException("Saving Property image was not successful", e);
 			}
 		}
+		
+	
+		String name = principal.getName();
+		User activeuser = userService.findbyFirstName(name);
+//		
+//		System.out.println(activeuser.getUserId());
+		property.setOwner(activeuser);
+	
 		property.setImagePath(servletContext.getContextPath() + "/resources/images/" + property.getId()+ ".png");
 		
 		Property save= propertyService.addProperty(property);

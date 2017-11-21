@@ -52,7 +52,7 @@ public class AuctionController {
 		auction.setProperty(property);     
 		auction.setMinBidAmount(property.getExpectedPrice());
 		auctionService.addAuction(auction);
-		return "redirect:/property/futureAuctions";
+		return "redirect:/home";
 
 	}
 

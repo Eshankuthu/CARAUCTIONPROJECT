@@ -17,6 +17,6 @@ public interface UserService {
 	
 	public void approveUser(Long id);
 
-	
+	public User findbyFirstName(String firstName);
 
 }

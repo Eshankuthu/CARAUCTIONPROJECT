@@ -2,10 +2,14 @@ package edu.mum.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -119,10 +123,20 @@ public class Property implements Serializable {
 		this.imagePath = imagePath;
 	}
 	
-	//@NotNull
-	/*@OneToOne(fetch=FetchType.EAGER,cascade = CascadeType.MERGE)
+
+	@OneToOne(fetch=FetchType.EAGER,cascade = CascadeType.MERGE)
 	@JoinColumn(name="owner_id")
-	private User owner;*/
+	private User owner;
+
+	public User getOwner() {
+		return owner;
+	}
+
+	public void setOwner(User owner) {
+		this.owner = owner;
+	}
+	
+	
 	
 	
 	/*@OneToOne(fetch=FetchType.EAGER,cascade = CascadeType.ALL)
