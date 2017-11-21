@@ -10,7 +10,7 @@
 		</p>
 		<div class="col-md-6 form-line">
 			<div class="form-group">
-				<label for="vehicle">CAR NAME<spring:message code="vehicle.name"/></label>
+				<label for="vehicle">CAR NAME</label>
 				<form:input class="form-control" id="vehicle"
 					placeholder="Enter Car Name" path="vehicle" />
 				<div>
