@@ -1,5 +1,4 @@
-
-<%@ include file="header.jsp"%>
+<%@ include file="usermenu.jsp"%>
 
 
 <h3 align="center">Sell your Car at Great Price</h3>
@@ -11,7 +10,7 @@
 		</p>
 		<div class="col-md-6 form-line">
 			<div class="form-group">
-				<label for="vehicle">CAR NAME</label>
+				<label for="vehicle">CAR NAME<spring:message code="vehicle.name"/></label>
 				<form:input class="form-control" id="vehicle"
 					placeholder="Enter Car Name" path="vehicle" />
 				<div>
@@ -89,7 +88,8 @@
 
 				<input type="submit" value="Submit" class="btn btn-success"/>
 			</div>
-		</div>
+		</div>	
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 	</form:form>
 </div>
 

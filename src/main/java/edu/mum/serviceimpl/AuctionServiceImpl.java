@@ -30,7 +30,7 @@ public class AuctionServiceImpl implements AuctionService {
 	public void addAuction(Auction auction) {
 		
 		auction.setCurrentBidAmount(auction.getMinBidAmount());
-		auction.setStatus(AuctionStatus.PENDING);
+		auction.setStatus(AuctionStatus.ACTIVE);
 		auctionRepository.save(auction);
 	}
 

@@ -1,12 +1,7 @@
 package edu.mum.domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -15,14 +10,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.Transient;
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class User implements Serializable {
@@ -34,10 +24,11 @@ public class User implements Serializable {
 	private long userId;
 	
 	
-	@Size(min=3,max= 25,message = "{Size.name.validation}")
+	@Size(min=3,max= 25,  message = "FirstName size should be between 3 and 25")
 	private String firstName;
 	
-	@Size(min=3,max=25,message = "{Size.name.validation}")
+
+	@Size(min=3,max=25, message = "LastName size should be between 3 and 25")
 	private String lastName;
 	
 	

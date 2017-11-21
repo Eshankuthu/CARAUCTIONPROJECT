@@ -27,14 +27,23 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-     <img  class="group list-group-image" src="<c:url value="/resources/images/CAS.png"></c:url>" alt="CAS"  style = "width:100%"/>
+      <a class="navbar-brand" href="#">CAR AUCTION SYSTEM</a>
     </div>
-    <ul class="nav navbar-nav" style="padding: 15px;">
-      <li class="active"><a href="<spring:url value='/' />">Home</a></li>
-      
-      <li><a href="<spring:url value='/login' />">Login</a></li>
-        <li><a href="<spring:url value='/futureAuctions' />">Coming Auctions</a></li>
+    <ul class="nav navbar-nav">
+  <li class="active"><a href="<spring:url value='/home' />">Home</a></li>
+      <li><a href="<spring:url value='/property/add' />">Add Property</a></li>
+        <li><div>
+<spring:url value="/dologout" var="logout_url" />				
+  			<form:form action="${logout_url}" class="form-horizontal" method="POST" >
+  					<div class="form-group">
+					<div class="col-lg-offset-2 col-lg-10">
+						<input type="submit" id="btnAdd" class="btn btn-danger btn-mini  pull-right" value ="Logout"/>
+					</div>
+				</div>
+			</form:form>
+</div>
+</li>
     </ul>
   </div>
-  <a href="?language=en" >English</a>  |  <a href="?language=de_DE" >GERMANY</a> </a>
+    <a href="?language=en" >English</a>  |  <a href="?language=de_DE" >GERMANY</a> </a>
 </nav>

@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
 	
 	public void saveUser(User user) {
 	
-		user.setUserStatus(UserStatus.PENDING);
+		user.setUserStatus(UserStatus.APPROVED);
 		
 		credentialService.saveCredential(user.getUserCredential());
 		userRepository.save(user);
@@ -57,6 +57,12 @@ public class UserServiceImpl implements UserService {
 		
 		userRepository.save(user);
 		
+	}
+
+	@Override
+	public User findbyFirstName(String firstName) {
+		// TODO Auto-generated method stub
+		return  userRepository.findbyFirstName(firstName);
 	}
 
 }

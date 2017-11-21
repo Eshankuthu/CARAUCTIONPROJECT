@@ -64,31 +64,5 @@ public class UserController {
 	}
 	
 	
-	
-	@RequestMapping(value="/admin/users", method=RequestMethod.GET)
-	public String userList(Model model){
-		
-		return "UsersList";
-		
-		
-	}
-	@RequestMapping(value = "/approve/{userId}", method = RequestMethod.GET)
-	public String approveAuction(@PathVariable("userId") Long userId, Model model) {
-		userService.approveUser(userId);
-		return "redirect:/admin/users/";
-	}
 
-	@RequestMapping(value = "/decline/{userId}", method = RequestMethod.GET)
-	public String rejectUser(@PathVariable("userId") Long userId, Model model) {
-
-		userService.deleteUser(userId);
-		return "redirect:/admin/users";
-
-	}
-	@RequestMapping(value = "/contactUs", method = RequestMethod.GET)
-	public String contactUs(Model model) {
-	   return "contactUs";
-	}
-	
-	
 }
