@@ -30,13 +30,11 @@ public class AuctionServiceImpl implements AuctionService {
 	public void addAuction(Auction auction) {
 		
 		auction.setCurrentBidAmount(auction.getMinBidAmount());
-		auction.setStatus(AuctionStatus.ACTIVE);
+		auction.setStatus(AuctionStatus.PENDING);
 		auctionRepository.save(auction);
 	}
 
-	// Setting pre assumptions for Auction so that seller would not have a lot
-	// to fill. Entire Business Logic only which can be changed according to
-	// requirement
+	
 	public void setAuctionPreassumptions(Auction auction, Property property) {
 
 		auction.setProperty(property);
@@ -59,16 +57,10 @@ public class AuctionServiceImpl implements AuctionService {
 	public Auction approveAuction(Long auctionId) {
 
 		Auction auction = auctionRepository.findOne(auctionId);
-		auction.setStatus(AuctionStatus.APPROVED);
+		auction.setStatus(AuctionStatus.ACTIVE);
 		return auctionRepository.save(auction);
 	}
 	
-	@Override
-	public Auction approveAuction(Auction auction) {
-
-		auction.setStatus(AuctionStatus.APPROVED);
-		return auctionRepository.save(auction);
-	}
 
 	@Override
 	public Auction rejectAuction(Long auctionId) {

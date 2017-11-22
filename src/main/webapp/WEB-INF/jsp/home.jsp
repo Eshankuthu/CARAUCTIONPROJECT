@@ -1,4 +1,6 @@
-<%@ include file="usermenu.jsp"%>
+
+<%@ include file="header.jsp"%>
+
 
 	<div class="jumbotron">
 			<div class="container">
@@ -54,5 +56,7 @@
        </c:forEach>
          </div>
 </div>
+
+
 		
 <%@ include file="footer.jsp"%>

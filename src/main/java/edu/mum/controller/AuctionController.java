@@ -56,7 +56,7 @@ public class AuctionController {
 
 	}
 
-	@RequestMapping(value = "/auction/pending",method=RequestMethod.GET)
+	@RequestMapping(value = "/pendingauctions",method=RequestMethod.GET)
 	public String pendingAuction(Model model) {
 		
 		List<Auction> auctions = auctionService.getAllPendingAuctions();

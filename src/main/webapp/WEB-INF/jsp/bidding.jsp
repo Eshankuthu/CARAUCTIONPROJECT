@@ -56,14 +56,14 @@
 								<div>
 
 									<h3>
-										Current Maximum Bid: <strong>${auction.currentBidAmount }</strong>
+										<spring:message code="bid.CurrentMaximumBid"/> <strong>${auction.currentBidAmount }</strong>
 									</h3>
 
 								</div>
 
 								<div class="form-group">
 									<h3>
-										<label><span>Next Bid: </span></label>
+										<label><span><spring:message code="bid.bidAmount"/> </span></label>
 									</h3>
 									<div class='form-group'>
 										<form:input path="bidAmount" cssClass="form-control" />
@@ -71,7 +71,7 @@
 									</div>
 								</div>
 
-								<input type="submit" value="Bid" class="btn btn-success" />
+								<input type="submit" value="<spring:message code="bid.botton"/>" class="btn btn-success" />
 							</div>
 						</div>
 					</c:if>
