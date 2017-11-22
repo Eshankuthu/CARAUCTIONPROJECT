@@ -2,7 +2,6 @@ package edu.mum.controller;
 
 import java.io.File;
 import java.security.Principal;
-import java.util.List;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -20,7 +19,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import edu.mum.domain.Auction;
 import edu.mum.domain.Property;
 import edu.mum.domain.User;
 import edu.mum.exception.ImageException;
