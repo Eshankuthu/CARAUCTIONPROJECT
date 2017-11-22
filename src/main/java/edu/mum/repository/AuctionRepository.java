@@ -14,18 +14,7 @@ import edu.mum.domain.AuctionStatus;
 
 @Repository
 public interface AuctionRepository extends JpaRepository<Auction, Long> {
-	//
-	// @Modifying
-	// @Transactional
-	// @Query("Update Auction a set a.status='APPROVED' where a.id= :auctionId")
-	// public void approveAuction(@Param("auctionId") Long auctionId);
-	//
-	// @Modifying
-	// @Transactional
-	// @Query("Update Auction a set a.status='CANCELLED' where a.id=
-	// :auctionId")
-	// public int rejectAuction(@Param("auctionId") Long auctionId);
-	//
+
 	@Query("Select a from Auction a where a.endDate<CURRENT_TIMESTAMP and a.status = 'ACTIVE'")
 	public List<Auction> getEndingAuctions();
 

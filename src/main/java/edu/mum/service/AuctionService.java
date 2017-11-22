@@ -26,7 +26,7 @@ public interface AuctionService {
 
 	public Auction getAuction(Long auctionId);
 
-	public Auction approveAuction(Auction auction);
+	
 
 	Auction completeAuction(Long auctionId);
 	

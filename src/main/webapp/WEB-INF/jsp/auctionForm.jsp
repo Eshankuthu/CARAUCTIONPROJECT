@@ -41,7 +41,7 @@
 
 
 				<div class="form-group">
-					<h4>Odometer Reading : ${newAuction.property.odometer}</h4>
+					<h4>Miles Reading : ${newAuction.property.odometer}</h4>
 				</div>
 
 

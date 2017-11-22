@@ -3,16 +3,12 @@ package edu.mum.controller;
 import java.io.File;
 import java.security.Principal;
 import java.util.List;
-import java.util.Collection;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,9 +20,11 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import edu.mum.domain.Auction;
 import edu.mum.domain.Property;
 import edu.mum.domain.User;
 import edu.mum.exception.ImageException;
+import edu.mum.service.AuctionService;
 import edu.mum.service.PropertyService;
 import edu.mum.service.UserService;
 
@@ -36,6 +34,9 @@ import edu.mum.service.UserService;
 @RequestMapping("property")
 @SessionAttributes("addedProperty")
 public class PropertyController {
+	
+	@Autowired
+	AuctionService auctionService;
 	
 	@Autowired
 	UserService userService;
@@ -105,10 +106,13 @@ public class PropertyController {
 	}
 
 	
-	@RequestMapping(value = "/futureAuctions", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/futureAuctions", method = RequestMethod.GET)
 	public String futureAuctionList(Model model) {
-		List<Property> list = propertyService.getAllProperty();
-		model.addAttribute("properties", list);
-		return "futureAuctions";
-	}
+		
+		List<Auction> auctions = auctionService.getAllPendingAuctions();
+		model.addAttribute("pendingauctions",auctions);
+		return "pendingAuctions";
+		
+		
+	}*/
 }

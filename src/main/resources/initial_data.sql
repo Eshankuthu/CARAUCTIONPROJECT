@@ -11,7 +11,7 @@ INSERT INTO user (email,firstName,lastName,userStatus, phone_id,user_userId) VAL
 INSERT INTO user (email,firstName,lastName,userStatus, phone_id,user_userId) VALUES ('Henok@gmail.com','Henok ','Yared ','APPROVED',2,'Henok');
 INSERT INTO user (email,firstName,lastName,userStatus, phone_id,user_userId) VALUES ('Dickson@gmail.com','Steward','Dickson','APPROVED',3,'Steward');
 
-INSERT INTO authority (authority,username)  VALUES ('ROLE_USER','eshankuthu');
+INSERT INTO authority (authority,username)  VALUES ('ROLE_ADMIN','eshankuthu');
 INSERT INTO authority (authority,username) VALUES ('ROLE_USER','Henok');
 INSERT INTO authority (authority,username)  VALUES('ROLE_USER','Steward');
 
@@ -22,7 +22,7 @@ INSERT INTO property VALUES (3,'8','If the winning bidder lives within 50 miles 
 
 INSERT INTO auction VALUES (1,0,1060,'2017-12-04 17:00:00',1060,'2017-11-27 09:00:00','ACTIVE',NULL,1);
 INSERT INTO auction VALUES (2,0,1500,'2017-12-04 17:00:00',1500,'2017-11-27 09:00:00','ACTIVE',NULL,2);
-INSERT INTO auction VALUES (3,0,2000,'2017-12-04 17:00:00',2000,'2017-11-27 09:00:00','ACTIVE',NULL,3);
+INSERT INTO auction VALUES (3,0,2000,'2017-12-04 17:00:00',2000,'2017-11-27 09:00:00','PENDING',NULL,3);
 
 
 INSERT INTO bid VALUES (1,1068,'2017-11-20 23:14:57',1,2);
