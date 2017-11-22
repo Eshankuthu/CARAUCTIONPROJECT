@@ -44,5 +44,5 @@
 </li>
     </ul>
   </div>
-    <a href="?language=en" >English</a>  |  <a href="?language=de_DE" >GERMANY</a> </a>
+    <a href="?language=en" >English</a>  |  <a href="?language=de_DE" >GERMANY</a> 
 </nav>

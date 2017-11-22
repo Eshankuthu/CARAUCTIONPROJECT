@@ -28,7 +28,7 @@
       </p>
 
       <p><a href="#">Click Home</a> to visit our home page</p>
-     <button type=button onclick=window.location.href="<spring:url value="/" />">Home</button>
+     <button type=button onclick=window.location.href=<spring:url value="/" />>Home</button>
 </div>
 </div>
   </body>

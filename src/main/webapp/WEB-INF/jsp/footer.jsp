@@ -8,7 +8,7 @@
 
                 <!--Grid column-->
                 <div >
-                    <h6 class="mb-0 white-text text-center text-md-left"><strong>Develop By : Eshan Kuthu,Stewart Dickson ,Henok Yared & Gankhuyag</strong></h6>
+                    <h6 class="mb-0 white-text text-center text-md-left"><strong>Develop By : Eshan Kuthu,Stewart Dickson ,Henok Yared and Gankhuyag</strong></h6>
                 </div>
                 <!--Grid column-->
 
